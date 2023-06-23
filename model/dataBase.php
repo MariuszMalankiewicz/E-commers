@@ -37,6 +37,4 @@ class DBH{
         $this->mysqli->close();
     }
 }
-
-
 ?>

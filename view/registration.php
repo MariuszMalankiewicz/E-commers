@@ -1,5 +1,4 @@
 <?php
-
 require_once(APP_NAME . "/view/html/head.html");
 require_once(APP_NAME . "/controller/registrationController.php");
 ?>

@@ -48,6 +48,5 @@ class Validation extends DBH{
         $data = $validation->connected()->real_escape_string($data);
         return $data;
     }
-
 }
 ?>

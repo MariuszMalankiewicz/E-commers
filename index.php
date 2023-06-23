@@ -1,10 +1,7 @@
 <?php
-
 $request  = $_SERVER['REQUEST_URI'];
 
 define('APP_NAME', dirname(__FILE__));
-
-
 
 switch ($request) {
     case '/' :

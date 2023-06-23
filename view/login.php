@@ -1,8 +1,7 @@
 <?php
-
-require_once('../model/dataBase.php');
-require_once('../controller/loginController.php');
-require_once('../view/head.html');
+require_once(APP_NAME . "/view/html/head.html");
+require_once(APP_NAME . "/model/dataBase.php");
+require_once(APP_NAME . "/controller/loginController.php");
 ?>
 
 <div class="flex flex-col items-center justify-center h-screen">
@@ -53,18 +52,13 @@ require_once('../view/head.html');
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="logIn">
                 Zaloguj eię
             </button>
-            <a class="py-2 px-4" href="../index.php">Powrót</a>
+            <a class="py-2 px-4" href="/">Powrót</a>
         </div>
     </form>
         
     </div>
 </div>
 
-
 <?php
-
-$validation->select('user','username', "username = ';DROP TABLE test'");
-$row = mysqli_fetch_assoc($validation->sql);
-
-require_once('../view/footer.html');
+require_once(APP_NAME . "/view/html/footer.html");
 ?>

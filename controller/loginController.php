@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("../model/dataBase.php");
-require_once("../validation/Validation.php");
+require_once(APP_NAME . "/model/dataBase.php");
+require_once(APP_NAME . "/validation/Validation.php");
 
 class LoginController extends DBH{
     public function logIn(){
@@ -34,10 +34,6 @@ class LoginController extends DBH{
             }
             else
             {
-
-
-                
-
                 $validation->select('user','password', "email = '{$tableValues['email']}'");
                 $row = mysqli_fetch_assoc($validation->sql);
                 $formPassword = $tableValues['password'];
@@ -45,24 +41,16 @@ class LoginController extends DBH{
     
                 if(password_verify($formPassword, $dbPassword)) 
                 {
-                    header('location:../index.php');
+                    header('location: /');
                 }
                 else
                 {
                     $_SESSION["error"] = 2;
                 }
             }
-
-
-            
-
-
-
-
         }
     }
 }
-
 $login = new LoginController();
 $login->logIn();
 ?>

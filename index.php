@@ -1,17 +1,29 @@
 <?php
-require_once('model/dataBase.php');
-require_once('view/head.html');
-?>
-<div class="w-full h-screen">
-    <div class="w-full flex flex-row justify-end content-center bg-gradient-to-r from-cyan-500 to-blue-500">
-        <a class="p-3 text-white font-medium" href="view/login.php">Zaloguj się</a>
-        <a class="p-3 text-white font-medium" href="view/registration.php">Zarejestruj się</a>
-    </div>
-    <div>
-        <h1 class="text-center mt-4">Witaj!</h1>
-    </div>
-</div>
 
-<?php
-require_once('view/footer.html');
+$request  = $_SERVER['REQUEST_URI'];
+
+define('APP_NAME', dirname(__FILE__));
+
+
+
+switch ($request) {
+    case '/' :
+        require_once(APP_NAME . "/view/app.php");
+        break;
+    case '' :
+        require_once(APP_NAME . "/view/app.php");
+        break;
+    case '/login' :
+        require_once(APP_NAME . "/view/login.php");
+        break;
+    case '/registration' :
+        require_once(APP_NAME . "/view/registration.php");
+        break;
+    default:
+        http_response_code(404);
+        require_once(APP_NAME . "/view/404.php");
+        break;
+}
+
 ?>
+

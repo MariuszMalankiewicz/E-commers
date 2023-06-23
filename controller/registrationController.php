@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once("../model/dataBase.php");
-require_once("../validation/Validation.php");
-require_once("../controller/registrationController.php");
+require_once(APP_NAME . "/model/dataBase.php");
+require_once(APP_NAME . "/validation/Validation.php");
+require_once(APP_NAME . "/controller/registrationController.php");
 
 class RegistrationController extends DBH{
 
@@ -65,7 +65,7 @@ class RegistrationController extends DBH{
                 
                 $newUser = new DBH();
                 $newUser->insert('user', ['username'=>$username, 'email'=>$email, 'password'=>$passwordHash]);
-                header('location:../view/login.php');
+                header('location: /login');
             }
         }
     }  

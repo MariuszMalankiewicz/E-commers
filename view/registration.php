@@ -1,7 +1,7 @@
 <?php
 
-require_once('../view/head.html');
-require_once('../controller/registrationController.php');
+require_once(APP_NAME . "/view/html/head.html");
+require_once(APP_NAME . "/controller/registrationController.php");
 ?>
 
 <div class="flex flex-col items-center justify-center h-screen">
@@ -90,7 +90,7 @@ require_once('../controller/registrationController.php');
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="registration">
                 Zarejestruj eię
             </button>
-            <a class="py-2 px-4" href="../index.php">Powrót</a>
+            <a class="py-2 px-4" href="/">Powrót</a>
         </div>
     </form>
         
@@ -98,5 +98,5 @@ require_once('../controller/registrationController.php');
 </div>
 
 <?php
-include_once('../view/footer.html');
+include_once(APP_NAME . "/view/html/footer.html");
 ?>

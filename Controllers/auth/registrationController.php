@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-require_once(APP_NAME . "/model/dataBase.php");
-require_once(APP_NAME . "/validation/Validation.php");
-require_once(APP_NAME . "/controller/registrationController.php");
+require("Core/validation.php");
 
 class RegistrationController extends DBH{
 

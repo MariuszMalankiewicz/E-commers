@@ -1,5 +1,5 @@
 <?php
-require_once(APP_NAME . "/model/dataBase.php");
+require_once("Core/dataBase.php");
 
 class Validation extends DBH{
     function emptyData($data = array()){

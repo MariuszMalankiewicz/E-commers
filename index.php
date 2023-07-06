@@ -1,24 +1,25 @@
 <?php
 $request  = $_SERVER['REQUEST_URI'];
 
-define('APP_NAME', dirname(__FILE__));
-
 switch ($request) {
     case '/' :
-        require_once(APP_NAME . "/view/app.php");
+        require(__DIR__ . "/views/index.view.php");
         break;
     case '' :
-        require_once(APP_NAME . "/view/app.php");
+        require(__DIR__ . "/views/index.view.php");
         break;
     case '/login' :
-        require_once(APP_NAME . "/view/login.php");
+        require(__DIR__ . "/views/auth/login.view.php");
         break;
     case '/registration' :
-        require_once(APP_NAME . "/view/registration.php");
+        require(__DIR__ . "/views/auth/registration.view.php");
+        break;
+    case '/dashboard' :
+        require(__DIR__ . "/views/dashboard/index.view.php");
         break;
     default:
         http_response_code(404);
-        require_once(APP_NAME . "/view/404.php");
+        require(__DIR__ . "/views//errors/404.view.php");
         break;
 }
 

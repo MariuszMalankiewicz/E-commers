@@ -1,10 +1,11 @@
 <?php
-require_once(APP_NAME . "/view/html/head.html");
-require_once(APP_NAME . "/model/dataBase.php");
-require_once(APP_NAME . "/controller/loginController.php");
+require("views/partials/head.php");
+require("Core/dataBase.php");
+require("Controllers/auth/loginController.php");
+
 ?>
 
-<div class="flex flex-col items-center justify-center h-screen">
+<div class="flex flex-col items-center justify-center h-screen bg-white">
     <div>
         <h1 class="font-bold text-2xl mb-4">Zaloguj się</h1>
     </div>
@@ -59,6 +60,8 @@ require_once(APP_NAME . "/controller/loginController.php");
     </div>
 </div>
 
+
+
 <?php
-require_once(APP_NAME . "/view/html/footer.html");
+require("views/partials/footer.php");
 ?>

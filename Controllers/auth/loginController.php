@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require_once(APP_NAME . "/model/dataBase.php");
-require_once(APP_NAME . "/validation/Validation.php");
+require("Core/validation.php");
 
 class LoginController extends DBH{
     public function logIn(){
@@ -41,7 +40,7 @@ class LoginController extends DBH{
     
                 if(password_verify($formPassword, $dbPassword)) 
                 {
-                    header('location: /');
+                    header('location: /dashboard');
                 }
                 else
                 {

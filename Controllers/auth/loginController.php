@@ -40,7 +40,7 @@ class LoginController extends DBH{
     
                 if(password_verify($formPassword, $dbPassword)) 
                 {
-                    header('location: /dashboard');
+                    header('location: /dashboards');
                 }
                 else
                 {

@@ -8,11 +8,10 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Strona głowna</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">W przyszłóści</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">W przyszłóści</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">W przyszłóści</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">W przyszłóści</a>
+              <a href="/dashboard" class="<?= checkUri("/dashboard") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page">Strona głowna</a>
+              <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-3 py-2 text-sm font-medium">Nowe produkty!</a>
+              <a href="/products" class="<?= checkUri("/products") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Nasze produkty</a>
+              <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Kontakt</a>
             </div>
           </div>
         </div>

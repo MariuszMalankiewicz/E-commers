@@ -1,7 +1,7 @@
 <?php
 require("views/partials/head.php");
-require("Core/dataBase.php");
-require("Controllers/auth/registrationController.php");
+// require("Core/dataBase.php");
+// require("Controllers/auth/registrationController.php");
 ?>
 
 <div class="flex flex-col items-center justify-center h-screen bg-white">

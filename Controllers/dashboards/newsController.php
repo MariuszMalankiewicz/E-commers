@@ -1,5 +1,4 @@
 <?php
-require("Core/functions.php");
 
 $heading = "Nowe produkty";
 

@@ -1,7 +1,6 @@
 <?php
 require("views/partials/head.php");
-require("Core/dataBase.php");
-require("Controllers/auth/loginController.php");
+// require("Core/dataBase.php");
 
 ?>
 

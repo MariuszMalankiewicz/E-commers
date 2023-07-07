@@ -11,3 +11,4 @@ function dd($value){
 function checkUri($value){
     return ($_SERVER['REQUEST_URI'] === $value);
 }
+

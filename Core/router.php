@@ -10,7 +10,7 @@ function routeToController($path, $routes){
 function abort($code){
     http_response_code($code);
 
-    require "views/errors/{$code}.view.php";
+    require "Controllers/errors/{$code}Controller.php";
 
     die();
 }

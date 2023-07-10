@@ -1,41 +1,38 @@
 <?php
 
-class DBH{
-    private $host = 'localhost';
-    private $user = 'root';
-    private $password = '';
-    private $database = 'crud';
-    protected $mysqli;
-    public $sql;
+class Database
+{
 
-    public function __construct(){
-        $this->mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
-    }
+    public $connection;
 
-    protected function connected(){
-        return $this->mysqli;
-    }
-
-    public function insert($tableName, $tableColumnAndValues=array()){
-        $tableColumns = implode(',', array_keys($tableColumnAndValues));
-        $tableValues = implode("','", $tableColumnAndValues);
-
-        $sql = "INSERT INTO $tableName ($tableColumns) VALUES ('$tableValues')";
-        $this->mysqli->query($sql);
+    public function __construct($config, $username = 'root', $password = '')
+    {
         
+        $dsn = ('mysql:'.http_build_query($config, '', ';'));
+
+        try 
+        {
+            $this->connection = new PDO($dsn, $username, $password, [
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            ]);
+        }
+        catch (PDOException $e) 
+        {
+            print "Error!: " . $e->getMessage() . "<br/>";
+
+            die();
+        }
 
     }
-    public function select($table, $rows="*", $where = null){
-        if($where != null){
-            $sql = "Select $rows FROM $table WHERE $where";
-        }else{
-            $sql = "Select $rows FROM $table";
-        }
-        return $this->sql = $this->mysqli->query($sql);
-  }
-  
-    public function __destruct(){
-        $this->mysqli->close();
+
+    public function query($query)
+    {
+        $statement = $this->connection->prepare($query);
+
+        $statement->execute();
+
+        return $statement;
     }
+
 }
 ?>

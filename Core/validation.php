@@ -1,52 +1,59 @@
 <?php
-require_once("Core/dataBase.php");
 
-class Validation extends DBH{
-    function emptyData($data = array()){
-        foreach ($data as $key => $value) {
-            if(empty($value)){
-                return false;
-            }
-        }
-    }
-    function sameData($data1, $data2){
-        if($data1 !== $data2){
-            return false;
-        }
-    }
-    function sameDataInDB($table, $rows, $where, $data){
-        $sameDataInDB = new Validation();  
-        $sameDataInDB->select($table, $rows, $where);
-        $row = mysqli_fetch_assoc($sameDataInDB->sql);
 
-        if(is_array($row)){
-            if($row[$rows] === $data){
-                return false;
-            }
+class Validation {
+
+    static function emptyData($array = [])
+    {
+        foreach ($array as $item)
+        {
+            (empty($item)) ? var_dump(false) : var_dump(true);
         }
     }
-    function checkEmail($data){
-        if(!filter_var($data, FILTER_VALIDATE_EMAIL)){
-            return false;
-        }
+
+    static function sameData($item1, $item2)
+    {
+        ($item1 !== $item2) ? var_dump(false) : var_dump(true);
     }
-    function checkMinLength($data, $length){
-        if(strlen($data) < $length){
-            return false;
-        }
+    
+    static function checkLength($item, $min, $max)
+    {
+        (strlen($item) < $min) || (strlen($item) > $max) ? var_dump(false) : var_dump(true);
     }
-    function checkMaxLength($data, $length){
-        if(strlen($data) > $length){
-            return false;
-        }
+
+
+    static function sameDataInDB($config)
+    {
+        $sameDataInDB = new Database($config['database']);
+        // var_dump($sameDataInDB->query("SELECT email FROM `user` WHERE email = ':email'", ['email' => $email])->fetch());
+        $sameDataInDB->query("SELECT email FROM user WHERE email = 'test@test.com'")->fetch();
+        
+        // $sameDataInDB->select($table, $rows, $where);
+        // $row = mysqli_fetch_assoc($sameDataInDB->sql);
+
+        // if(is_array($row)){
+            // if($row[$rows] === $data){
+                // return false;
+            // }
+        // }
     }
-    function clearData($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        $validation = new DBH();
-        $data = $validation->connected()->real_escape_string($data);
-        return $data;
-    }
+    
+
+
+    // function checkEmail($data){
+    //     if(!filter_var($data, FILTER_VALIDATE_EMAIL)){
+    //         return false;
+    //     }
+    // }
+
+
+    // function clearData($data){
+    //     $data = trim($data);
+    //     $data = stripslashes($data);
+    //     $data = htmlspecialchars($data);
+    //     $validation = new DBH();
+    //     $data = $validation->connected()->real_escape_string($data);
+    //     return $data;
+    // }
 }
 ?>

@@ -1,6 +1,14 @@
 <?php
 
+// require("Core/Database.php");
+
+// require("Core/auth/registrationLogic.php");
+
 require("views/auth/registration.view.php");
+
+// $new = new RegistrationLogic();
+// $new->checkForm($formData);
+
 // session_start();
 
 // require("Core/validation.php");

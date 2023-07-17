@@ -2,11 +2,6 @@
 
 require("views/partials/head.php");
 
-require("Core/auth/registrationLogic.php");
-
-
-$new = new RegistrationLogic();
-$new->AddUser();
 ?>
 
 <div class="flex flex-col items-center justify-center h-screen bg-white">

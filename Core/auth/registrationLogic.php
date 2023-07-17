@@ -1,24 +1,25 @@
 <?php
 
+$formData = require("formData.php");
+
+require("Core/validation.php");
+
 class RegistrationLogic{
 
-    public function AddUser(){
-        if(isset($_POST['registration'])){
-            $tableValues=[
-                'username' => trim($_POST['username']),
-                'email' => trim($_POST['email']),
-                'password' => trim($_POST['password']),
-                'repassword' => trim($_POST['repassword'])
-            ];
-
-            
-            echo "-->> Test 1".Validation::emptyData($tableValues)."<br>";
-            echo "-->> Test 2".Validation::sameData($tableValues['password'], $tableValues['repassword'])."<br>";
-            echo "-->> Test 3".Validation::checkLength($tableValues['username'], 4, 10)."<br>";
-            echo "-->> Test 4".Validation::sameDataInDB()."<br>";
-            
+    public function checkForm($formData)
+    {
+        if(isset($_POST['registration']))
+        {
+            Validation::emptyData($formData) === null ? print("test 1 error") : print("test 1 pass");
+            Validation::sameData($formData['password'], $formData['repassword']);
+            Validation::checkLength($formData['username'], 4, 10);
         }
 
-    
     }
+
+
+    // public function AddUser($formData)
+    // {
+
+    // }
 }

@@ -1,5 +1,5 @@
 <?php
-    require("partials/head.php");
+    require("views/partials/head.php");
 ?>
 
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">

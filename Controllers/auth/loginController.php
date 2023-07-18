@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("views/auth/login.view.php");
+require("public/views/auth/login.view.php");
 
 // require("Core/auth/loginLogic.php");
 

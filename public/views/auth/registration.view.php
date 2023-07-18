@@ -1,6 +1,6 @@
 <?php
 
-require("views/partials/head.php");
+require("public/views/partials/head.php");
 
 ?>
 
@@ -116,7 +116,7 @@ require("views/partials/head.php");
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="registration">
                 Zarejestruj się
             </button>
-            <a class="py-2 px-4" href="/">Powrót</a>
+            <a class="py-2 px-4" href="/welcome">Powrót</a>
         </div>
     </form>
         
@@ -124,5 +124,7 @@ require("views/partials/head.php");
 </div>
 
 <?php
-require("views/partials/footer.php");
+
+require("public/views/partials/footer.php");
+
 ?>

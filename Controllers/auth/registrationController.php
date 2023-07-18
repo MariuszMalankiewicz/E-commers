@@ -4,7 +4,7 @@
 
 // require("Core/auth/registrationLogic.php");
 
-require("views/auth/registration.view.php");
+require("public/views/auth/registration.view.php");
 
 // $new = new RegistrationLogic();
 // $new->checkForm($formData);

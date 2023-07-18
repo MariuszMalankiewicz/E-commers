@@ -1,3 +1,3 @@
 <?php
 
-require("views/auth/welcome.view.php");
+require("public/views/auth/welcome.view.php");

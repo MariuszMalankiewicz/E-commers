@@ -9,9 +9,8 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page">Strona głowna</a>
+              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page">Nasze produkty</a>
               <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-3 py-2 text-sm font-medium">Nowe produkty!</a>
-              <a href="/products" class="<?= checkUri("/products") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Nasze produkty</a>
               <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Kontakt</a>
             </div>
           </div>
@@ -19,6 +18,7 @@
 
 
         <div class="hidden md:block">
+          <a href="/welcome" class="bg-blue-700 text-white rounded-md px-3 py-2 text-sm font-medium">Konto</a>
           <!-- <div class="ml-4 flex items-center md:ml-6"> -->
             <!-- <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
               <span class="sr-only">View notifications</span>
@@ -60,7 +60,7 @@
             <!-- </div> -->
             
           <!-- </div> -->
-        <!-- </div> -->
+        </div>
         
         <!-- ?????? -->
 
@@ -85,21 +85,18 @@
 
     
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden" id="mobile-menu">
+    <div class="md:hidden text-center" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-
-      
-
-        <a href="/" class=" <?= checkUri("/") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium" aria-current="page">Strona główna</a>
+        <a href="/" class=" <?= checkUri("/") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium" aria-current="page">Nasze produkty</a>
         <a href="/news" class=" <?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md px-3 py-2 text-base font-medium">Nowe produkty!</a>
-        <a href="/products" class=" <?= checkUri("/products") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium">Nasze produkty</a>
         <a href="/contact" class=" <?= checkUri("/contact") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium">Kontakt</a>
       </div>
 
       <!-- profile mobile -->
 
-      <!-- <div class="border-t border-gray-700 pb-3 pt-4">
-        <div class="flex items-center px-5">
+      <div class="border-t border-gray-700 pb-4 pt-4">
+        <a href="/welcome" class="bg-blue-700 text-white rounded-md px-3 py-2 text-sm font-medium">Konto</a>
+        <!-- <div class="flex items-center px-5">
           <div class="flex-shrink-0">
             <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
           </div>
@@ -118,8 +115,8 @@
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
-        </div>
-      </div> -->
+        </div> -->
+      </div>
       
     </div>
   </nav>

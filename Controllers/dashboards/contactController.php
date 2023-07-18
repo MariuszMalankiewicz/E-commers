@@ -2,4 +2,4 @@
 
 $heading = "Kontakt";
 
-require("views/dashboards/contact.view.php");
+require("public/views/dashboards/contact.view.php");

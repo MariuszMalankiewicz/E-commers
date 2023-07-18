@@ -1,5 +1,5 @@
 <?php
 
-$heading = "Strona główna";
+$heading = "Nasze produkty";
 
-require("views/dashboards/index.view.php");
+require("public/views/dashboards/index.view.php");

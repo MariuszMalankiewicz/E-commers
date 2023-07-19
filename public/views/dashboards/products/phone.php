@@ -8,7 +8,7 @@ require_once("Core/functions.php");
 
 $dbh = new Database($config['database']);
 
-$products = $dbh->query("SELECT * FROM products where category = :category", ['category' => 'zegarki'])->fetchAll();
+$products = $dbh->query("SELECT * FROM products where category = :category", ['category' => 'telefony'])->fetchAll();
 
 ?>
 

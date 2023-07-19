@@ -8,10 +8,10 @@ require("public/views/partials/header.php");
 
 ?>
 
-
 <div class="min-h-auto">
     <main class="flex-col overflow-x-hidden">
         <?php require("public/views/dashboards/products/smartwatch.php"); ?>
+        <?php require("public/views/dashboards/products/phone.php"); ?>
   </main>
 </div>
 

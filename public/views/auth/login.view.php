@@ -49,7 +49,7 @@ require("public/views/partials/head.php");
         ?>
         </div>
         <div class="flex items-center justify-around">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="logIn">
+            <button class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="logIn">
                 Zaloguj się
             </button>
             <a class="py-2 px-4" href="/welcome">Powrót</a>

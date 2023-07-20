@@ -1,13 +1,11 @@
 <?php
 
-$products = $dbh->query("SELECT * FROM products where category = :category", ['category' => 'telefony'])->fetchAll();
+$config = require("config.php");
+
+$dbh = new Database($config['database']);
+$products = $dbh->query("SELECT `name`, `img`, `rating`, `price` FROM products")->fetchAll();
 
 ?>
-
-<!-- category wrapper -->
-<div class='flex justify-center content-center'>
-    <h1 class='pt-6 text-xl font-bold'><?= ucfirst($products[0]['category']) ?></h1>
-</div>
 
 <!-- products wrapper -->
 <div class='flex overflow-x-auto'>
@@ -20,9 +18,9 @@ foreach ($products as $key => $product)
 echo
 "
     <div class='py-6 px-3'>
-        <div class='flex flex-col justify-around items-center  w-72 h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+        <div class='w-72 h-full flex flex-col justify-around items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
             <a href='#'>
-                <img class='p-2 rounded-t-lg w-72 h-60' src= 'data:image/jpeg;base64, ".base64_encode( $product['img'] ) ."' />
+                <img class='p-2 rounded-t-lg' src= 'data:image/jpeg;base64, ".base64_encode( $product['img'] ) ."' />
             </a>
             <div class='px-5 pb-5'>
                 <a href='#'>

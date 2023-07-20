@@ -3,7 +3,7 @@
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://mariusz-malankiewicz-portfolio.netlify.app" class="flex items-center mb-4 sm:mb-0">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mariusz Malankiewicz</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><?php $config = require("config.php"); echo $config['app']['name']; ?></span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                 <li>
@@ -15,7 +15,7 @@
             </ul>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">Mariusz Malankiewicz™</a>. wszystkie prawa zastrzeżone.</span>
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline"><?php $config = require("config.php"); echo $config['app']['name']; ?></a>. wszystkie prawa zastrzeżone.</span>
     </div>
 </footer>
 

@@ -23,7 +23,7 @@
               }
             }
           </style>
-    <title>E-commers</title>
+    <title><?php $config = require("config.php"); echo $config['app']['name']; ?></title>
 </head>
 <body class="h-full">
   

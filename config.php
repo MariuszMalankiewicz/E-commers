@@ -1,6 +1,10 @@
 <?php
 
     return [
+        'app' => [
+            'name' => 'MMExpress',
+        ],
+
         'database' => [
             'host' => 'localhost',
             'dbname' => 'crud',

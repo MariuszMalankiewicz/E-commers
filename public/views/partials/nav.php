@@ -1,3 +1,13 @@
+<?php
+
+$navName1 = 'Nasze oferty';
+
+$navName2 = 'Nowe produkty!';
+
+$navName3 = 'Kontakt';
+
+?>
+
 <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
@@ -9,9 +19,9 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page">Nasze produkty</a>
-              <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-3 py-2 text-sm font-medium">Nowe produkty!</a>
-              <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Kontakt</a>
+              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page"><?= $navName1 ?></a>
+              <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-3 py-2 text-sm font-medium"><?= $navName2 ?></a>
+              <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium"><?= $navName3 ?></a>
             </div>
           </div>
         </div>
@@ -87,9 +97,9 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="md:hidden text-center" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-        <a href="/" class=" <?= checkUri("/") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium" aria-current="page">Nasze produkty</a>
-        <a href="/news" class=" <?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md px-3 py-2 text-base font-medium">Nowe produkty!</a>
-        <a href="/contact" class=" <?= checkUri("/contact") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium">Kontakt</a>
+        <a href="/" class=" <?= checkUri("/") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium" aria-current="page"><?= $navName1 ?></a>
+        <a href="/news" class=" <?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md px-3 py-2 text-base font-medium"><?= $navName2 ?></a>
+        <a href="/contact" class=" <?= checkUri("/contact") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium"><?= $navName3 ?></a>
       </div>
 
       <!-- profile mobile -->

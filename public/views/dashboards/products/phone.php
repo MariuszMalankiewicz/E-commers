@@ -1,17 +1,8 @@
 <?php
 
-$config = require("config.php");
-
-require_once("Core/Database.php");
-
-require_once("Core/functions.php");
-
-$dbh = new Database($config['database']);
-
 $products = $dbh->query("SELECT * FROM products where category = :category", ['category' => 'telefony'])->fetchAll();
 
 ?>
-
 
 <!-- category wrapper -->
 <div class='flex justify-center content-center'>
@@ -19,7 +10,7 @@ $products = $dbh->query("SELECT * FROM products where category = :category", ['c
 </div>
 
 <!-- products wrapper -->
-<div class='flex overflow-x-scroll'>
+<div class='flex overflow-x-auto'>
 
 <?php
 

@@ -1,5 +1,6 @@
 <?php
     require("public/views/partials/head.php");
+    require("public/views/partials/nav.php");
 ?>
 
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -10,9 +11,6 @@
       <a href="/registration" class="rounded-md bg-blue-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Załóż konto</a>
       <p>lub</p>
       <a href="/login" class="text-sm font-semibold text-blue-700 underline">Zaloguj się</a>
-      <p>|</p>
-      <a href="/" class="text-sm font-semibold text-blue-700 underline">Bez logowania</a>
-      
     </div>
   </div>
 </main>

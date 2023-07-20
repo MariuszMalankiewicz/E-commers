@@ -1,6 +1,6 @@
 <?php
 
-$navName1 = 'Nasze oferty';
+$navName1 = 'Wszystkie produkty';
 
 $navName2 = 'Nowe produkty!';
 

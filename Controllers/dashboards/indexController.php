@@ -1,5 +1,5 @@
 <?php
 
-$heading = "Nasze produkty";
+$heading = "Wszystkie produkty";
 
 require("public/views/dashboards/index.view.php");

@@ -1,4 +1,4 @@
-<div class="w-11/12 mt-7 p-7 shadow rounded-lg bg-white">
+<div class="w-11/12 mt-7 mb-2 p-7 shadow rounded-lg bg-white">
   <div class="relative">
 	<div class="absolute flex items-center ml-2 h-full">
 	  <svg class="w-4 h-4 fill-current text-primary-gray-dark" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -25,7 +25,7 @@ class Database
 
     }
 
-    public function query($query, $param = [])
+    public function query(string $query, array $param = [])
     {
         $statement = $this->connection->prepare($query);
 

@@ -1,12 +1,3 @@
-<?php
-
-$config = require("config.php");
-
-$dbh = new Database($config['database']);
-$products = $dbh->query("SELECT `name`, `img`, `rating`, `price` FROM products")->fetchAll();
-
-?>
-
 <!-- products wrapper -->
 
 <div class='flex flex-wrap justify-center items-center'>

@@ -1,82 +1,73 @@
 <?php
-
-// require("Core/Database.php");
-
-// require("Core/auth/registrationLogic.php");
+ob_start();
 
 require("public/views/auth/registration.view.php");
 
-// $new = new RegistrationLogic();
-// $new->checkForm($formData);
-
-// session_start();
-
-// require("Core/validation.php");
-
-// class RegistrationController extends DBH{
-
-//     public function AddUser(){
-//         if(isset($_POST['registration'])){
-//             $tableValues=[
-//                 'username' => $_POST['username'],
-//                 'email' => $_POST['email'],
-//                 'password' => $_POST['password'],
-//                 'repassword' => $_POST['repassword']
-//             ];
-
-//             $validation = new Validation();
+require("Core/validation.php");
 
 
-//             if($validation->emptyData($tableValues) === false)
-//             {
-//                 $_SESSION["error"] = 'emptyFormData';
-//             }
-//             else if($validation->checkMinLength($tableValues['username'], 3) === false){
-//                 $_SESSION["error"] = 'minLegnthUserName';
-//             }
-//             else if($validation->checkMaxLength($tableValues['username'], 12) === false ){
-//                 $_SESSION["error"] = 'maxLegnthUserName';
-//             }
-//             else if($validation->sameDataInDB('user', 'username', "username = '{$tableValues['username']}'", $tableValues['username']) === false)
-//             {
-//                 $_SESSION["error"] = 'sameUserNameInDb';
-//             }
-//             else if($validation->checkEmail($tableValues['email']) === false)
-//             {
-//                 $_SESSION["error"] = 'checkFormatEmail';
-//             }
-//             else if($validation->sameDataInDB('user', 'email', "email = '{$tableValues['email']}'", $tableValues['email']) === false)
-//             {
-//                 $_SESSION["error"] = 'sameEmailInDb';
-//             }
-//             else if($validation->checkMinLength($tableValues['password'], 8) === false){
-//                 $_SESSION["error"] = 'minLegnthPassword';
-//             }
-//             else if($validation->checkMinLength($tableValues['repassword'], 8) === false){
-//                 $_SESSION["error"] = 'minLegnthPassword';
-//             }
-//             else if($validation->checkMaxLength($tableValues['password'], 20) === false ){
-//                 $_SESSION["error"] = 'maxLegnthPassword';
-//             }
-//             else if($validation->checkMaxLength($tableValues['repassword'], 20) === false ){
-//                 $_SESSION["error"] = 'maxLegnthPassword';
-//             }
-//             else if($validation->sameData($tableValues['password'], $tableValues['repassword']) === false)
-//             {  
-//                 $_SESSION["error"] = 'samePassword';
-//             }
-//             else{
-//                 $username = $validation->clearData($_POST['username']);
-//                 $email = $validation->clearData($_POST['email']);
-//                 $password = $validation->clearData($_POST['password']);
-//                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+class RegistrationLogic
+{
+
+    public function addUser()
+    {
+
+        $_SESSION['message'] = '';
+
+        if(isset($_POST['registration']))
+        {
+            $formData = 
+            [
+
+                'username' => $_POST['username'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'repassword' => $_POST['repassword']
                 
-//                 $newUser = new DBH();
-//                 $newUser->insert('user', ['username'=>$username, 'email'=>$email, 'password'=>$passwordHash]);
-//                 header('location: /login');
-//             }
-//         }
-//     }  
-// }
-// $newUser = new RegistrationController();
-// $newUser->AddUser();
+            ];
+
+            empty(Validation::trimData($formData)) ? $_SESSION['message'] = "Uzupełnij wszystkie pola" : '';
+            Validation::strlenString($formData['username'], 3, 15) ? $_SESSION['message'] = "Nazwa musi posiadać od 3 do 15 znaków" : '';
+            Validation::strlenString($formData['email'], 3, 30) ? $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków" : '';
+            !Validation::validEmail($formData['email']) ? $_SESSION['message'] = "Nieprawidłowy format email" : '';
+            Validation::sameDataInDb($formData['email']) ? $_SESSION['message'] = "Taki email już istnieje" : '';
+            Validation::strlenString($formData['password'], 3, 30) ? $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków" : '';
+            Validation::strlenString($formData['repassword'], 3, 30) ? $_SESSION['message'] = "Powtórz Hasło musi posiadać od 3 do 30 znaków" : '';
+            Validation::differentData($formData['password'], $formData['repassword']) ? $_SESSION['message'] = "Hasła nie są takie same" : '';
+
+
+            if($_SESSION['message'] === '')
+            {
+                $formData['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
+
+                $config = require("config.php");
+
+                $InsertUser = new Database($config['database']);
+
+                $query = 'INSERT INTO `user`(`id`, `username`, `email`, `password`) VALUES (:id, :username, :email, :password)';
+
+                $InsertUser->query($query, 
+                [
+                    ':id' => NULL, 
+                    ':username' => $formData['username'], 
+                    ':email' => $formData['email'], 
+                    ':password' => $formData['password']
+                ]);
+
+                    header("location: /login");
+
+                    ob_end_flush();
+
+                    exit();
+            }
+
+
+        }
+    
+    }
+
+}
+
+$newUser = new RegistrationLogic();
+
+$newUser->addUser();

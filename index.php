@@ -1,7 +1,8 @@
 <?php
 
-$config = require("config.php");
+session_start();
 
+$config = require("config.php");
 
 require("Core/functions.php");
 

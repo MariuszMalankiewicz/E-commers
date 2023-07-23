@@ -12,9 +12,7 @@ class loginController
     public function logIn()
     {
 
-        $_SESSION['message'] = '';
-
-        if(isset($_POST['logIn']))
+        if(isset($_POST['logIn']) && !empty($_POST['email']) && !empty($_POST['password']))
         {
             $formData = 
             [
@@ -22,19 +20,51 @@ class loginController
                 'password' => $_POST['password']
             ];
 
-            empty(Validation::trimData($formData)) ? $_SESSION['message'] = "Uzupełnij wszystkie pola" : '';
+            Validation::trimData($formData);
 
-            Validation::strlenString($formData['email'], 3, 30) ? $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków" : '';
+            if(Validation::strlenString($formData['email'], 3, 30))
+            {
 
-            !Validation::validEmail($formData['email']) ? $_SESSION['message'] = "Nieprawidłowy format email" : '';
+                $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków";
 
-            !Validation::sameDataInDb($formData['email']) ? $_SESSION['message'] = "Email lub hasło jest nie poprawne" : '';
+            }
 
-            Validation::strlenString($formData['password'], 3, 30) ? $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków" : '';
+            else if(!Validation::validEmail($formData['email']))
+            {
 
-            !Validation::passwordVerify($formData['email'], $formData['password']) ? $_SESSION['message'] = "Email lub hasło jest nie poprawne" : '';
+                $_SESSION['message'] = "Nieprawidłowy format email";
 
-            if($_SESSION['message'] === '')
+            }
+
+            else if(!Validation::sameDataInDb($formData['email']))
+            {
+
+                $_SESSION['message'] = "Email lub hasło jest nie poprawne";
+
+            }
+
+            else if(Validation::strlenString($formData['password'], 3, 30))
+            {
+
+                $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków";
+
+            }
+
+            else if(!Validation::passwordVerify($formData['email'], $formData['password']))
+            {
+
+                $_SESSION['message'] = "Email lub hasło jest nie poprawne";
+
+            }
+
+            else
+            {
+
+                $_SESSION['message'] = "";
+                
+            }
+
+            if(empty($_SESSION['message']))
             {
 
                     header("location: /");
@@ -45,6 +75,10 @@ class loginController
 
             }
 
+        }
+        else
+        {
+            $_SESSION['message'] = "Uzupełnij wszystkie pola";
         }
     
     }

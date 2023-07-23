@@ -2,7 +2,7 @@
 
 class Validation {
 
-    public static function trimData(array $array = [])
+    public static function trimData(array $array = []) : string
     {
         foreach ($array as $data)
         {
@@ -44,7 +44,15 @@ class Validation {
 
         $passwordHash = $dbh->query("SELECT password FROM `user` WHERE email = :data", [':data' => $data1])->fetch();
 
-        return password_verify($data2, $passwordHash['password']);
+        if(isset($passwordHash['password']))
+        {
+            return password_verify($data2, $passwordHash['password']);
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 
 }

@@ -1,14 +1,5 @@
 <?php
 
-
-// przy wyświetlaniu uzywać 
-
-// htmlspecialchars($data);
-
-// $data = stripslashes($data);
-
-// $data = $validation->connected()->real_escape_string($data);
-
 class Validation {
 
     public static function trimData(array $array = [])
@@ -43,6 +34,17 @@ class Validation {
         $dbh = new Database($config['database']);
 
         return $dbh->query("SELECT email FROM `user` WHERE email = :data", [':data' => $data])->fetch();
+    }
+
+    public static function passwordVerify(string $data1, string $data2) : bool
+    {
+        $config = require("config.php");
+
+        $dbh = new Database($config['database']);
+
+        $passwordHash = $dbh->query("SELECT password FROM `user` WHERE email = :data", [':data' => $data1])->fetch();
+
+        return password_verify($data2, $passwordHash['password']);
     }
 
 }

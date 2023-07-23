@@ -1,69 +1,56 @@
 <?php
 
+ob_start();
+
+require("Core/validation.php");
+
 require("public/views/auth/login.view.php");
 
-// require("Core/auth/loginLogic.php");
+class loginController
+{
 
-// pobrane dane!
+    public function logIn()
+    {
 
-// require("../dataBase.php");
+        $_SESSION['message'] = '';
 
-// require("../validation.php");
+        if(isset($_POST['logIn']))
+        {
+            $formData = 
+            [
+                'email' => $_POST['email'],
+                'password' => $_POST['password']
+            ];
 
+            empty(Validation::trimData($formData)) ? $_SESSION['message'] = "Uzupełnij wszystkie pola" : '';
 
+            Validation::strlenString($formData['email'], 3, 30) ? $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków" : '';
 
+            !Validation::validEmail($formData['email']) ? $_SESSION['message'] = "Nieprawidłowy format email" : '';
 
+            !Validation::sameDataInDb($formData['email']) ? $_SESSION['message'] = "Email lub hasło jest nie poprawne" : '';
 
+            Validation::strlenString($formData['password'], 3, 30) ? $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków" : '';
 
+            !Validation::passwordVerify($formData['email'], $formData['password']) ? $_SESSION['message'] = "Email lub hasło jest nie poprawne" : '';
 
-// session_start();
+            if($_SESSION['message'] === '')
+            {
 
-// class LoginController extends DBH{
-//     public function logIn(){
-//         if (isset($_POST['logIn'])) {
-//             $tableValues=[
-//                 'email' => $_POST['email'],
-//                 'password' => $_POST['password']
-//             ];
+                    header("location: /");
 
-//             $validation = new Validation();
+                    ob_end_flush();
 
-//             if ($validation->emptyData($tableValues) === false) 
-//             {
-//                 $_SESSION["error"] = 'emptyFormData';
-//             }
-//             else if($validation->checkMinLength($tableValues['password'], 8) === false){
-//                 $_SESSION["error"] = 'minLegnthPassword';
-//             }
-//             else if($validation->checkMaxLength($tableValues['password'], 20) === false ){
-//                 $_SESSION["error"] = 'maxLegnthPassword';
-//             }
-//             else if($validation->sameDataInDB('user', 'email', "email = '{$tableValues['email']}'", $tableValues['email']) !== false)
-//             {
-//                 $_SESSION["error"] = 'uncorrectEmailOrPassword';
-//             }
-//             else if($validation->checkEmail($tableValues['email']) === false)
-//             {
-//                 $_SESSION["error"] = 'checkFormatEmail';
-//             }
-//             else
-//             {
-//                 $validation->select('user','password', "email = '{$tableValues['email']}'");
-//                 $row = mysqli_fetch_assoc($validation->sql);
-//                 $formPassword = $tableValues['password'];
-//                 $dbPassword = $row['password'];
+                    exit();
+
+            }
+
+        }
     
-//                 if(password_verify($formPassword, $dbPassword)) 
-//                 {
-//                     header('location: /dashboards');
-//                 }
-//                 else
-//                 {
-//                     $_SESSION["error"] = 2;
-//                 }
-//             }
-//         }
-//     }
-// }
-// $login = new LoginController();
-// $login->logIn();
+    }
+
+}
+
+$user = new loginController();
+
+$user->logIn();

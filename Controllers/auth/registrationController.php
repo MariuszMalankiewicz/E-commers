@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 
 require("public/views/auth/registration.view.php");
@@ -6,7 +7,7 @@ require("public/views/auth/registration.view.php");
 require("Core/validation.php");
 
 
-class RegistrationLogic
+class RegistrationController
 {
 
     public function addUser()
@@ -27,14 +28,20 @@ class RegistrationLogic
             ];
 
             empty(Validation::trimData($formData)) ? $_SESSION['message'] = "Uzupełnij wszystkie pola" : '';
-            Validation::strlenString($formData['username'], 3, 15) ? $_SESSION['message'] = "Nazwa musi posiadać od 3 do 15 znaków" : '';
-            Validation::strlenString($formData['email'], 3, 30) ? $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków" : '';
-            !Validation::validEmail($formData['email']) ? $_SESSION['message'] = "Nieprawidłowy format email" : '';
-            Validation::sameDataInDb($formData['email']) ? $_SESSION['message'] = "Taki email już istnieje" : '';
-            Validation::strlenString($formData['password'], 3, 30) ? $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków" : '';
-            Validation::strlenString($formData['repassword'], 3, 30) ? $_SESSION['message'] = "Powtórz Hasło musi posiadać od 3 do 30 znaków" : '';
-            Validation::differentData($formData['password'], $formData['repassword']) ? $_SESSION['message'] = "Hasła nie są takie same" : '';
 
+            Validation::strlenString($formData['username'], 3, 15) ? $_SESSION['message'] = "Nazwa musi posiadać od 3 do 15 znaków" : '';
+
+            Validation::strlenString($formData['email'], 3, 30) ? $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków" : '';
+
+            !Validation::validEmail($formData['email']) ? $_SESSION['message'] = "Nieprawidłowy format email" : '';
+
+            Validation::sameDataInDb($formData['email']) ? $_SESSION['message'] = "Taki email już istnieje" : '';
+
+            Validation::strlenString($formData['password'], 3, 30) ? $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków" : '';
+
+            Validation::strlenString($formData['repassword'], 3, 30) ? $_SESSION['message'] = "Powtórz Hasło musi posiadać od 3 do 30 znaków" : '';
+
+            Validation::differentData($formData['password'], $formData['repassword']) ? $_SESSION['message'] = "Hasła nie są takie same" : '';
 
             if($_SESSION['message'] === '')
             {
@@ -68,6 +75,6 @@ class RegistrationLogic
 
 }
 
-$newUser = new RegistrationLogic();
+$newUser = new RegistrationController();
 
 $newUser->addUser();

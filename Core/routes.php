@@ -6,5 +6,7 @@ $routes = [
     '/registration' => 'Controllers/auth/registrationController.php',
     '/welcome' => 'Controllers/auth/welcomeController.php',
     '/news' => 'Controllers/dashboards/newsController.php',
-    '/contact' => 'Controllers/dashboards/contactController.php'
+    '/contact' => 'Controllers/dashboards/contactController.php',
+    '/account' => 'Controllers/auth/account/indexController.php',
+    '/logout' => 'Controllers/auth/account/logoutController.php',
 ];

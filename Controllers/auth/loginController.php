@@ -66,12 +66,19 @@ class loginController
 
             if(empty($_SESSION['message']))
             {
+                $config = require("config.php");
 
-                    header("location: /");
+                $dbh = new Database($config['database']);
+        
+                $userId = $dbh->query("SELECT id FROM `user` WHERE email = :data", [':data' => $formData['email']])->fetch();
 
-                    ob_end_flush();
+                $_SESSION['userId'] = $userId;
 
-                    exit();
+                header("location: /account");
+
+                ob_end_flush();
+
+                exit();
 
             }
 

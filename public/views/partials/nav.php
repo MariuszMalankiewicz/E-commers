@@ -1,59 +1,41 @@
-<?php
-
-$navName1 = 'Wszystkie produkty';
-
-$navName2 = 'Nowe produkty!';
-
-$navName3 = 'Kontakt';
-
-?>
-
-<nav class="bg-gray-800 md:p-2">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <!-- desktop nav -->
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+<nav class="bg-gray-800">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col py-4 items-center justify-center sm:flex-row sm:justify-between">
+      <div class="flex flex-col items-center sm:flex-row">
+          <div class="block mb-4 sm:mb-0 sm:flex-shrink-0">
+            <img class="h-20 w-20 sm:h-12 sm:w-12 border rounded-md" src="public/imgs/logo.png" alt="MMExpress logo">
           </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page"><?= $navName1 ?></a>
-              <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-3 py-2 text-sm font-medium"><?= $navName2 ?></a>
-              <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium"><?= $navName3 ?></a>
+          <div>
+            <div class="flex flex-col text-center sm:items-baseline sm:space-x-4 sm:flex-row sm:ml-10">
+              <a href="/" class="<?= checkUri("/") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-4 py-4 text-sm font-medium">Wszystkie produkty</a>
+              <a href="/news" class="<?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md hocer:no-underline hover:bg-red-600 hover:text-white px-4 py-4 text-sm font-medium">Nowe produkty!</a>
+              <a href="/contact" class="<?= checkUri("/contact") ? "bg-gray-900 text-white underline" : "text-gray-300"?> rounded-md hover:bg-gray-700 hover:text-white px-4 py-4 text-sm font-medium">Kontakt</a>
             </div>
           </div>
-        </div>
-        <div class="hidden md:block">
-          <a href="/welcome" class="bg-blue-700 text-white rounded-md px-3 py-2 text-sm font-medium">Konto</a>
-        </div>
-        <!-- Mobile menu button -->
-        <div class="-mr-2 flex md:hidden">
-          <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!-- Menu open: "hidden", Menu closed: "block" -->
-            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!-- Menu open: "block", Menu closed: "hidden" -->
-            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
       </div>
-    </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden text-center" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-        <a href="/" class=" <?= checkUri("/") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium" aria-current="page"><?= $navName1 ?></a>
-        <a href="/news" class=" <?= checkUri("/news") ? "text-gray-100 bg-red-600 underline" : "text-red-500"?> rounded-md px-3 py-2 text-base font-medium"><?= $navName2 ?></a>
-        <a href="/contact" class=" <?= checkUri("/contact") ? "bg-gray-900 text-white block underline" : "text-gray-300 hover:bg-gray-700 hover:text-white block"?> rounded-md px-3 py-2 text-base font-medium"><?= $navName3 ?></a>
+      <div class="mt-4 sm:mt-0">
+        <a href='/welcome' class='bg-blue-700 text-white rounded-md px-4 py-4 text-sm font-medium'>Moje konto</a>
       </div>
-      <!-- profile mobile -->
-      <div class="border-t border-gray-700 pb-4 pt-4">
-        <a href="/welcome" class="bg-blue-700 text-white rounded-md px-3 py-2 text-sm font-medium">Konto</a>
+      <div class="w-full mt-8 sm:hidden">
+        <hr>
       </div>
     </div>
-  </nav>
+  </div>
+  
+  <?php
+  if(isset($_SESSION['userId']))
+  {
+    echo "
+    <div class='flex flex-col bg-gray-800 w-full text-center sm:flex-row'>
+        <a href='/account' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Moje oferty</a>
+        <a href='/add' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Dodaj ofertę</a>
+        <a href='/setting' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Ustawienia</a>
+        <a href='/logout' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Wyloguj się</a>
+    </div>
+    ";
+  }
+  ?>
+</nav>
+
+

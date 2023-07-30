@@ -2,9 +2,9 @@
 
 ob_start();
 
-require("Core/validation.php");
+require("core/validation.php");
 
-require("public/views/auth/login.view.php");
+require("views/auth/login.view.php");
 
 class loginController
 {

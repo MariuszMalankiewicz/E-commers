@@ -2,9 +2,9 @@
 
 ob_start();
 
-require("public/views/auth/registration.view.php");
+require("views/auth/registration.view.php");
 
-require("Core/validation.php");
+require("core/validation.php");
 
 
 class RegistrationController

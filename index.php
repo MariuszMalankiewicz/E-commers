@@ -4,8 +4,8 @@ session_start();
 
 $config = require("config.php");
 
-require("Core/functions.php");
+require("core/functions.php");
 
-require("Core/Database.php");
+require("core/Database.php");
 
-require("Core/router.php");
+require("core/router.php");

@@ -1,6 +1,6 @@
 <?php
-    require("public/views/partials/head.php");
-    require("public/views/partials/nav.php");
+    require("views/partials/head.php");
+    require("views/partials/nav.php");
 ?>
 
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -17,6 +17,6 @@
 
 <?php
 
-  require("public/views/partials/footer.php");
+  require("views/partials/footer.php");
 
 ?>

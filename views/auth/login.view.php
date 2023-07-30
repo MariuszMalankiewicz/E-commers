@@ -1,8 +1,8 @@
 <?php
 
-require("public/views/partials/head.php");
+require("views/partials/head.php");
 
-require("public/views/partials/nav.php");
+require("views/partials/nav.php");
 
 ?>
 
@@ -61,6 +61,6 @@ require("public/views/partials/nav.php");
 
 <?php
 
-require("public/views/partials/footer.php");
+require("views/partials/footer.php");
 
 ?>

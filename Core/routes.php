@@ -1,12 +1,12 @@
 <?php
 
 $routes = [
-    '/' => 'Controllers/dashboards/indexController.php',
-    '/login' => 'Controllers/auth/loginController.php',
-    '/registration' => 'Controllers/auth/registrationController.php',
-    '/welcome' => 'Controllers/auth/welcomeController.php',
-    '/news' => 'Controllers/dashboards/newsController.php',
-    '/contact' => 'Controllers/dashboards/contactController.php',
-    '/account' => 'Controllers/auth/account/indexController.php',
-    '/logout' => 'Controllers/auth/account/logoutController.php',
+    '/' => 'Controllers/dashboards/index.php',
+    '/login' => 'Controllers/auth/login.php',
+    '/registration' => 'Controllers/auth/registration.php',
+    '/welcome' => 'Controllers/auth/welcome.php',
+    '/news' => 'Controllers/dashboards/news.php',
+    '/contact' => 'Controllers/dashboards/contact.php',
+    '/account' => 'Controllers/auth/account/index.php',
+    '/logout' => 'Controllers/auth/account/logout.php',
 ];

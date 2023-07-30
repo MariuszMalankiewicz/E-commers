@@ -10,4 +10,4 @@ $dbh = new Database($config['database']);
 
 $products = $dbh->query("SELECT `name`, `img`, `rating`, `price` FROM products")->fetchAll();
 
-require("public/views/dashboards/index.view.php");
+require("views/dashboards/index.view.php");

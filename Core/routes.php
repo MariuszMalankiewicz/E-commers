@@ -1,14 +1,14 @@
 <?php
 
 return [
-    '/' => 'Controllers/dashboards/index.php',
-    '/news' => 'Controllers/dashboards/news.php',
-    '/contact' => 'Controllers/dashboards/contact.php',
+    '/' => 'controllers/dashboards/index.php',
+    '/news' => 'controllers/dashboards/news.php',
+    '/contact' => 'controllers/dashboards/contact.php',
 
-    '/welcome' => 'Controllers/auth/welcome.php',
-    '/login' => 'Controllers/auth/login.php',
+    '/welcome' => 'controllers/auth/welcome.php',
+    '/login' => 'controllers/auth/login.php',
     '/registration' => 'Controllers/auth/registration.php',
 
-    '/account' => 'Controllers/auth/account/index.php',
-    '/logout' => 'Controllers/auth/account/logout.php',
+    '/account' => 'controllers/auth/account/index.php',
+    '/logout' => 'controllers/auth/account/logout.php',
 ];

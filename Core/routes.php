@@ -7,7 +7,7 @@ return [
 
     '/welcome' => 'controllers/auth/welcome.php',
     '/login' => 'controllers/auth/login.php',
-    '/registration' => 'Controllers/auth/registration.php',
+    '/registration' => 'controllers/auth/registration.php',
 
     '/account' => 'controllers/auth/account/index.php',
     '/logout' => 'controllers/auth/account/logout.php',

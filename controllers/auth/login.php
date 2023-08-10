@@ -1,97 +1,78 @@
 <?php
 
-ob_start();
+require("core/Validation.php");
 
-require("core/validation.php");
+$errors = [];
 
-require("views/auth/login.view.php");
-
-class loginController
+if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 
-    public function logIn()
+    $formData = 
+    [
+        'email' => $_POST['email'],
+        'password' => $_POST['password']
+    ];
+
+    if(empty($formData['email']))
     {
 
-        if(isset($_POST['logIn']) && !empty($_POST['email']) && !empty($_POST['password']))
-        {
-            $formData = 
-            [
-                'email' => $_POST['email'],
-                'password' => $_POST['password']
-            ];
+        $errors['emptyEmail'] = 'Uzupełnij email';
 
-            Validation::trimData($formData);
-
-            if(Validation::strlenString($formData['email'], 3, 30))
-            {
-
-                $_SESSION['message'] = "Email musi posiadać od 3 do 30 znaków";
-
-            }
-
-            else if(!Validation::validEmail($formData['email']))
-            {
-
-                $_SESSION['message'] = "Nieprawidłowy format email";
-
-            }
-
-            else if(!Validation::sameDataInDb($formData['email']))
-            {
-
-                $_SESSION['message'] = "Email lub hasło jest nie poprawne";
-
-            }
-
-            else if(Validation::strlenString($formData['password'], 3, 30))
-            {
-
-                $_SESSION['message'] = "Hasło musi posiadać od 3 do 30 znaków";
-
-            }
-
-            else if(!Validation::passwordVerify($formData['email'], $formData['password']))
-            {
-
-                $_SESSION['message'] = "Email lub hasło jest nie poprawne";
-
-            }
-
-            else
-            {
-
-                $_SESSION['message'] = "";
-                
-            }
-
-            if(empty($_SESSION['message']))
-            {
-                $config = require("config.php");
-
-                $dbh = new Database($config['database']);
-        
-                $userId = $dbh->query("SELECT id FROM `user` WHERE email = :data", [':data' => $formData['email']])->fetch();
-
-                $_SESSION['userId'] = $userId;
-
-                header("location: /account");
-
-                ob_end_flush();
-
-                exit();
-
-            }
-
-        }
-        else
-        {
-            $_SESSION['message'] = "Uzupełnij wszystkie pola";
-        }
-    
     }
 
+    if(empty($formData['password']))
+    {
+
+        $errors['emptyPassword'] = 'Uzupełnij hasło';
+
+    }
+
+    Validation::trimData($formData);
+
+    if(Validation::strlenString($formData['email'], 3, 30))
+    {
+
+        $errors['emailLength'] = "Email musi posiadać od 3 do 30 znaków";
+
+    }
+
+    if(!Validation::validEmail($formData['email']))
+    {
+
+        $errors['emailValid'] = "Nieprawidłowy format email";
+
+    }
+
+    if(Validation::strlenString($formData['password'], 3, 30))
+    {
+
+        $errors['passwordLength'] = "Hasło musi posiadać od 3 do 30 znaków";
+
+    }
+
+    if(!Validation::passwordVerify($formData['email'], $formData['password']))
+    {
+
+        $errors['passwordVeryfy'] = "Email lub hasło jest nie poprawne";
+
+    }
+
+    if(empty($errors))
+    {
+        $config = require("config.php");
+
+        $dbh = new Database($config['database']);
+
+        $userId = $dbh->query("SELECT id FROM `user` WHERE email = :data", [':data' => $formData['email']])->fetch();
+
+        $_SESSION['userId'] = $userId;
+
+        header("location: /account");
+
+        exit();
+        
+    }
+    
 }
 
-$user = new loginController();
-
-$user->logIn();
+require("views/auth/login.view.php");

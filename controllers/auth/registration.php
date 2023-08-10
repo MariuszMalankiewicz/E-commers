@@ -4,7 +4,7 @@ ob_start();
 
 require("views/auth/registration.view.php");
 
-require("core/validation.php");
+require("core/Validation.php");
 
 
 class RegistrationController

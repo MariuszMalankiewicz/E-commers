@@ -25,13 +25,15 @@ require("views/partials/nav.php");
                     name="email" 
                     value="<?= isset($_POST['logIn']) ? $_POST['email'] : '' ?>" 
                     placeholder="Email" 
-                    minlength="3"
-                    maxlength="30"
-                    required
+
                     >
             </div>
+            <?= isset($errors['emptyEmail']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emptyEmail'].'</p>' : ''; ?>
+            <?= isset($errors['emailLength']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emailLength'].'</p>' : ''; ?>
+            <?= isset($errors['emailValid']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emailValid'].'</p>' : ''; ?>
+            
 
-            <div class="mb-4">
+            <div class="mb-1">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password1">
                     Hasło
                 </label>
@@ -39,13 +41,13 @@ require("views/partials/nav.php");
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" 
                     value="<?= isset($_POST['logIn']) ? $_POST['password'] : '' ?>" 
                     placeholder="******************"
-                    minlength="3"
-                    maxlength="30"
-                    required
-                    >
 
-                <?= isset($_POST['logIn']) ? '<p class="block text-red-500 text-sm font-bold">'.$_SESSION['message'].'</p>' : ''; ?>
+                    >
             </div>
+            <?= isset($errors['emptyPassword']) ? '<p class="text-red-500 text-sm font-bold mb-4">'.$errors['emptyPassword'].'</p>' : ''; ?>
+            <?= isset($errors['passwordLength']) ? '<p class="text-red-500 text-sm font-bold mb-4">'.$errors['passwordLength'].'</p>' : ''; ?>
+            <?= isset($errors['passwordVeryfy']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['passwordVeryfy'].'</p>' : ''; ?>
+
 
             <div class="flex items-center justify-around">
                 <button class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="logIn">

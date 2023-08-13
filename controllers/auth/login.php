@@ -13,42 +13,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         'password' => $_POST['password']
     ];
 
-    if(empty($formData['email']))
-    {
-
-        $errors['emptyEmail'] = 'Uzupełnij email';
-
-    }
-
-    if(empty($formData['password']))
-    {
-
-        $errors['emptyPassword'] = 'Uzupełnij hasło';
-
-    }
-
     Validation::trimData($formData);
-
-    if(Validation::strlenString($formData['email'], 3, 30))
-    {
-
-        $errors['emailLength'] = "Email musi posiadać od 3 do 30 znaków";
-
-    }
-
-    if(!Validation::validEmail($formData['email']))
-    {
-
-        $errors['emailValid'] = "Nieprawidłowy format email";
-
-    }
-
-    if(Validation::strlenString($formData['password'], 3, 30))
-    {
-
-        $errors['passwordLength'] = "Hasło musi posiadać od 3 do 30 znaków";
-
-    }
 
     if(!Validation::passwordVerify($formData['email'], $formData['password']))
     {

@@ -25,7 +25,9 @@ require("views/partials/nav.php");
                     name="email" 
                     value="<?= isset($_POST['logIn']) ? $_POST['email'] : '' ?>" 
                     placeholder="Email" 
-
+                    minlength="3"
+                    maxlength="15"
+                    required
                     >
             </div>
             <?= isset($errors['emptyEmail']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emptyEmail'].'</p>' : ''; ?>
@@ -41,7 +43,9 @@ require("views/partials/nav.php");
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" 
                     value="<?= isset($_POST['logIn']) ? $_POST['password'] : '' ?>" 
                     placeholder="******************"
-
+                    minlength="3"
+                    maxlength="15"
+                    required
                     >
             </div>
             <?= isset($errors['emptyPassword']) ? '<p class="text-red-500 text-sm font-bold mb-4">'.$errors['emptyPassword'].'</p>' : ''; ?>

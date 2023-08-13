@@ -22,12 +22,14 @@ require("views/partials/nav.php");
                 type="text" 
                 name="username" 
                 value="<?= isset($_POST['registration']) ? $_POST['username'] : '' ?>" 
-                placeholder="Username"
+                placeholder="Nazwa"
                 minlength="3"
                 maxlength="15"
                 required
             >
             </div>
+
+            <?= isset($errors['usernameLength']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['usernameLength'].'</p>' : ''; ?>
 
             <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -40,10 +42,14 @@ require("views/partials/nav.php");
                 value="<?= isset($_POST['registration']) ? $_POST['email'] : '' ?>" 
                 placeholder="Email"
                 minlength="3"
-                maxlength="30"
+                maxlength="15"
                 required
             >
             </div>
+
+            <?= isset($errors['emailLength']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emailLength'].'</p>' : ''; ?>
+            <?= isset($errors['emailValid']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emailValid'].'</p>' : ''; ?>
+            <?= isset($errors['emailInDb']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['emailInDb'].'</p>' : ''; ?>
 
             <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password1">
@@ -56,10 +62,12 @@ require("views/partials/nav.php");
                 value="<?= isset($_POST['registration']) ? $_POST['password'] : '' ?>" 
                 placeholder="******************" 
                 minlength="3"
-                maxlength="30"
+                maxlength="15"
                 required
             >
             </div>
+
+            <?= isset($errors['passwordLength']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['passwordLength'].'</p>' : ''; ?>
 
             <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
@@ -72,11 +80,12 @@ require("views/partials/nav.php");
                 value="<?= isset($_POST['registration']) ? $_POST['repassword'] : '' ?>" 
                 placeholder="******************" 
                 minlength="3"
-                maxlength="30"
+                maxlength="15"
                 required
             >
 
-            <?= isset($_POST['registration']) ? '<p class="block text-red-500 text-sm font-bold">'.$_SESSION['message'].'</p>' : ''; ?>
+            <?= isset($errors['repasswordLength']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['repasswordLength'].'</p>' : ''; ?>
+            <?= isset($errors['passwordDiffrent']) ? '<p class="text-red-500 text-sm font-bold mb-3">'.$errors['passwordDiffrent'].'</p>' : ''; ?>
 
         </div>
             <div class="flex items-center justify-around">

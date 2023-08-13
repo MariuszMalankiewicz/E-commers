@@ -18,6 +18,6 @@
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline"><?php $config = require("config.php"); echo $config['app']['name']; ?></a>. wszystkie prawa zastrzeżone.</span>
     </div>
 </footer>
-
+    <script src="tailwind.js"></script>
 </body>
 </html>

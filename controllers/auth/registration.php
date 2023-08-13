@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
     }
 
-    if($_SESSION['message'] === '')
+    if(empty($errors))
     {
 
         $formData['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);

@@ -1,6 +1,18 @@
 <?php
 
-$heading = "Dodaj produkt";
+$heading = "Edytuj produkt";
+
+$productId = $_GET['id'];
+
+$config = require "config.php";
+
+$dbh = new Database($config['database']);
+
+$editProduct = $dbh->query("SELECT `category`, `name`, `price` FROM `products` WHERE id = :product_id", 
+
+[':product_id' => $productId])
+
+->fetch();
 
 require 'core/Validation.php';
 
@@ -37,17 +49,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $config = require("config.php");
 
-        $insertProduct = new Database($config['database']);
+        $dbh = new Database($config['database']);
 
-        $query = 'INSERT INTO `products`(`id`, `user_id`, `category`, `name`, `price`) VALUES (:id, :user_id, :category, :name, :price)';
+        $updateProduct = new Database($config['database']);
 
-        $insertProduct->query($query, 
+        $query = 'UPDATE `products` SET `category`=:category,`name`=:name, `price`=:price WHERE id= :id';
+
+        $updateProduct->query($query, 
         [
-            ':id' => NULL, 
-            ':user_id' => $_SESSION['userId']['id'], 
             ':category' => $formData['category'], 
             ':name' => $formData['name'],
-            ':price' => $formData['price']
+            ':price' => $formData['price'],
+            ':id' => $productId,
         ]);
 
         header("location: /account");
@@ -57,4 +70,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }
 
-require('views/auth/account/create.view.php');
+require 'views/auth/account/edit.view.php';

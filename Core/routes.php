@@ -11,6 +11,8 @@ return [
 
     '/account' => 'controllers/auth/account/index.php',
     '/create' => 'controllers/auth/account/create.php',
+    '/edit' => 'controllers/auth/account/edit.php',
+    '/delete' => 'controllers/auth/account/delete.php',
 
     '/logout' => 'controllers/auth/account/logout.php',
 ];

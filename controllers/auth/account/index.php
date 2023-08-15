@@ -4,6 +4,8 @@ $config = require("config.php");
 
 $dbh = new Database($config['database']);
 
-$user = $dbh->query("SELECT username, email FROM `user` WHERE id = :id", [':id' => $_SESSION['userId']['id']])->fetchall();
+$user = $dbh->query("SELECT username, email FROM `user` WHERE id = :id", 
+[':id' => $_SESSION['userId']['id']])
+->fetchall();
 
 require('views/auth/account/index.view.php');

@@ -10,5 +10,7 @@ return [
     '/registration' => 'controllers/auth/registration.php',
 
     '/account' => 'controllers/auth/account/index.php',
+    '/create' => 'controllers/auth/account/create.php',
+
     '/logout' => 'controllers/auth/account/logout.php',
 ];

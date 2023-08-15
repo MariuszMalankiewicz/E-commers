@@ -73,11 +73,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $config = require("config.php");
 
-        $InsertUser = new Database($config['database']);
+        $insertUser = new Database($config['database']);
 
         $query = 'INSERT INTO `user`(`id`, `username`, `email`, `password`) VALUES (:id, :username, :email, :password)';
 
-        $InsertUser->query($query, 
+        $insertUser->query($query, 
         [
             ':id' => NULL, 
             ':username' => $formData['username'], 

@@ -8,7 +8,7 @@ require("views/partials/header.php");
 
 ?>
 
-  <div class="min-h-full">
+<div class="min-h-full">
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center p-12">

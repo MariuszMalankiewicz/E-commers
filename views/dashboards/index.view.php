@@ -8,7 +8,7 @@ require "views/partials/header.php";
 
 ?>
 
-  <main class="min-h-auto overflow-x-hidden">
+<main class="min-h-full w-full bg-white shadow-md px-1 pt-6 my-2 overflow-x-hidden">
     
       <div class="flex flex-col justify-around items-center">
 

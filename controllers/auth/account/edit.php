@@ -8,11 +8,21 @@ $config = require "config.php";
 
 $dbh = new Database($config['database']);
 
-$editProduct = $dbh->query("SELECT `category`, `name`, `price` FROM `products` WHERE id = :product_id", 
+$editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `products` WHERE id = :product_id", 
 
 [':product_id' => $productId])
 
 ->fetch();
+
+if(!$editProduct)
+{
+    abort(404);
+}
+
+if(!$editProduct['user_id'] !== $_SESSION['userId']['id']);
+{
+    abort(403);
+}
 
 require 'core/Validation.php';
 

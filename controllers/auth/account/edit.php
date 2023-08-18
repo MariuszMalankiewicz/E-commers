@@ -16,13 +16,10 @@ $editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `
 
 if(!$editProduct)
 {
-    abort(404);
+    abort(Response::NOT_FOUND);
 }
 
-if(!$editProduct['user_id'] !== $_SESSION['userId']['id']);
-{
-    abort(403);
-}
+authorization($editProduct['user_id'], $_SESSION['userId']['id']);
 
 require 'core/Validation.php';
 

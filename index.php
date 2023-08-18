@@ -2,8 +2,10 @@
 
 session_start();
 
-require("core/functions.php");
+require "core/functions.php";
 
-require("core/Database.php");
+require "core/Database.php";
 
-require("core/router.php");
+require "Response.php";
+
+require "core/router.php";

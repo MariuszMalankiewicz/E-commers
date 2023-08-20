@@ -1,11 +1,11 @@
 <?php
 
-$heading = 'Wszystkie produkty';
+$heading = "Wszystkie produkty";
 
-$config = require 'config.php';
+$config = require base_path("config.php");
 
-$dbh = new Database($config['database']);
+$dbh = new Database($config["database"]);
 
 $products = $dbh->query("SELECT `name`, `img`, `price` FROM products")->get();
 
-require 'views/dashboards/index.view.php';
+require base_path("views/dashboards/index.view.php");

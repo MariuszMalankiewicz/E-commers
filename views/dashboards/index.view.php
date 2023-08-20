@@ -1,10 +1,10 @@
 <?php
 
-require "views/partials/head.php";
+require base_path("views/partials/head.php");
 
-require "views/partials/nav.php";
+require base_path("views/partials/nav.php");
 
-require "views/partials/header.php";
+require base_path("views/partials/header.php");
 
 ?>
 
@@ -12,16 +12,16 @@ require "views/partials/header.php";
     
       <div class="flex flex-col justify-around items-center">
 
-        <?php require "views/dashboards/filters.php"; ?>
+        <?php require base_path("views/dashboards/filters.php"); ?>
 
       </div>
 
-      <?php require "views/dashboards/products/products.view.php"; ?>
+      <?php require base_path("views/dashboards/products/products.view.php"); ?>
 
 </main>
 
 <?php
 
-require "views/partials/footer.php";
+require base_path("views/partials/footer.php");
 
 ?>

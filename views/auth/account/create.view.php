@@ -1,10 +1,10 @@
 <?php
 
-require 'views/partials/head.php';
+require base_path('views/partials/head.php');
 
-require 'views/partials/nav.php';
+require base_path('views/partials/nav.php');
 
-require 'views/partials/header.php';
+require base_path('views/partials/header.php');
 ?>
 
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
@@ -13,7 +13,7 @@ require 'views/partials/header.php';
         <div class="w-full h-full flex flex-col sm:flex-row">
 
             <div class="w-full flex justify-center items-center mb-4 sm:w-1/3">
-                <img class="w-24 h-24" src="public/imgs/example_img.png" alt="image description">
+                <img class="w-24 h-24" src="imgs/example_img.png" alt="image description">
                 
             </div>
 
@@ -96,6 +96,6 @@ require 'views/partials/header.php';
 
 <?php
 
-require 'views/partials/footer.php';
+require base_path('views/partials/footer.php');
 
 ?>

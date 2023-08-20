@@ -9,6 +9,11 @@ function dd($value)
     die();
 }
 
+function base_path(string $path)
+{
+    return BASE_PATH . $path;
+}
+
 function checkUri($value)
 {
     return ($_SERVER['REQUEST_URI'] === $value);
@@ -18,7 +23,7 @@ function abort($code = Response::NOT_FOUND)
 {
     http_response_code($code);
 
-    require "views/errors/{$code}.view.php";
+    require base_path("views/errors/{$code}.view.php");
 
     die();
 }

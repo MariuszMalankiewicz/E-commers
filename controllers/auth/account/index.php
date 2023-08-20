@@ -2,7 +2,7 @@
 
 $heading = 'Moje oferty';
 
-$config = require "config.php";
+$config = require base_path("config.php");
 
 $dbh = new Database($config['database']);
 
@@ -12,4 +12,4 @@ $userProducts = $dbh->query("SELECT `id`, `category`, `name`, `price` FROM `prod
 
 ->get();
 
-require 'views/auth/account/index.view.php';
+require base_path('views/auth/account/index.view.php');

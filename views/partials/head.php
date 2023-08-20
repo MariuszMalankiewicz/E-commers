@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="public/style/tailwind.css">
-    <title> <?php $config = include('config.php'); echo $config['app']['name']; ?> </title>
+    <title> <?php $config = require base_path('config.php'); echo $config['app']['name']; ?> </title>
 </head>
 <body class="h-full">
   

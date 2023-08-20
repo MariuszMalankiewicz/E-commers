@@ -2,7 +2,7 @@
 
 $productId = $_GET['id'];
 
-$config = require "config.php";
+$config = require base_path("config.php");
 
 $deleteProduct = new Database($config['database']);
 

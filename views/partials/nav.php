@@ -3,7 +3,7 @@
     <div class="flex flex-col py-4 items-center justify-center sm:flex-row sm:justify-between">
       <div class="flex flex-col items-center sm:flex-row">
           <div class="block mb-4 sm:mb-0 sm:flex-shrink-0">
-            <img class="h-20 w-20 sm:h-12 sm:w-12 border rounded-md" src="public/imgs/logo.png" alt="MMExpress logo">
+            <img class="h-20 w-20 sm:h-12 sm:w-12 border rounded-md" src="imgs/logo.png" alt="MMExpress logo">
           </div>
           <div>
             <div class="flex flex-col text-center sm:items-baseline sm:space-x-4 sm:flex-row sm:ml-10">
@@ -37,5 +37,3 @@
   }
   ?>
 </nav>
-
-

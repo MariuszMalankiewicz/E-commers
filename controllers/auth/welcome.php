@@ -2,9 +2,9 @@
 
 if(isset($_SESSION['userId']))
 {
-    require("controllers/auth/account/index.php");
+    require base_path("controllers/auth/account/index.php");
 }
 else
 {
-    require("views/auth/welcome.view.php");
+    require base_path("views/auth/welcome.view.php");
 }

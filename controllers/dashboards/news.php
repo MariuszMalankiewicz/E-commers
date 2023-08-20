@@ -2,4 +2,4 @@
 
 $heading = "Nowe produkty";
 
-require("views/dashboards/news.view.php");
+require base_path("views/dashboards/news.view.php");

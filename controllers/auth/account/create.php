@@ -2,7 +2,7 @@
 
 $heading = "Dodaj produkt";
 
-require 'core/Validation.php';
+require base_path('core/Validation.php');
 
 $errors = [];
 
@@ -57,4 +57,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }
 
-require('views/auth/account/create.view.php');
+require base_path('views/auth/account/create.view.php');

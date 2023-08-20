@@ -1,6 +1,6 @@
 <?php
 
-require("core/Validation.php");
+require base_path("core/Validation.php");
 
 $errors = [];
 
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $formData['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
 
-        $config = require("config.php");
+        $config = require base_path("config.php");
 
         $insertUser = new Database($config['database']);
 
@@ -93,4 +93,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
 }
 
-require("views/auth/registration.view.php");
+require base_path("views/auth/registration.view.php");

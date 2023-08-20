@@ -4,7 +4,7 @@ $heading = "Edytuj produkt";
 
 $productId = $_GET['id'];
 
-$config = require "config.php";
+$config = require base_path("config.php");
 
 $dbh = new Database($config['database']);
 
@@ -16,7 +16,7 @@ $editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `
 
 authorize($editProduct['user_id'] === $_SESSION['userId']['id'], Response::FORBIDDEN);
 
-require 'core/Validation.php';
+require base_path('core/Validation.php');
 
 $errors = [];
 
@@ -72,4 +72,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }
 
-require 'views/auth/account/edit.view.php';
+require base_path('views/auth/account/edit.view.php');

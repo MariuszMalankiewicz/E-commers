@@ -12,14 +12,9 @@ $editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `
 
 [':product_id' => $productId])
 
-->fetch();
+->findOrFail();
 
-if(!$editProduct)
-{
-    abort(Response::NOT_FOUND);
-}
-
-authorization($editProduct['user_id'], $_SESSION['userId']['id']);
+authorize($editProduct['user_id'] === $_SESSION['userId']['id'], Response::FORBIDDEN);
 
 require 'core/Validation.php';
 

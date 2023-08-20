@@ -10,6 +10,6 @@ $userProducts = $dbh->query("SELECT `id`, `category`, `name`, `price` FROM `prod
 
 [':user_id' => $_SESSION['userId']['id']])
 
-->fetchall();
+->get();
 
 require 'views/auth/account/index.view.php';

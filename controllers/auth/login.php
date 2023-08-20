@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $dbh = new Database($config['database']);
 
-        $userId = $dbh->query("SELECT id FROM `user` WHERE email = :data", [':data' => $formData['email']])->fetch();
+        $userId = $dbh->query("SELECT id FROM `user` WHERE email = :data", [':data' => $formData['email']])->find();
 
         $_SESSION['userId'] = $userId;
 

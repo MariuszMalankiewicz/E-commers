@@ -23,10 +23,10 @@ function abort($code = Response::NOT_FOUND)
     die();
 }
 
-function authorization(int $data1, int $data2)
+function authorize(string $condition, string $status)
 {
-    if($data1 !== $data2) 
+    if(!$condition) 
     {
-        abort(Response::FORBIDDEN);
+        abort($status);
     }
 }

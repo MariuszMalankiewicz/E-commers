@@ -15,8 +15,8 @@ echo
 
             <div class='px-5 pb-5 flex flex-col'>
 
-                <h5 class='py-2 text-xs font-semibold tracking-tight text-gray-900 dark:text-white'>". ucfirst($product['name']) ."</h5>
-                <span class='py-2 text-xs font-bold text-gray-900 dark:text-white'>". $product['price'] ." zł</span>
+                <h5 class='py-2 text-xs font-semibold tracking-tight text-gray-900 dark:text-white'>". htmlspecialchars(ucfirst($product['name'])) ."</h5>
+                <span class='py-2 text-xs font-bold text-gray-900 dark:text-white'>". htmlspecialchars($product['price']) ." zł</span>
                 <a href='#' class='py-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-1.25 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Dodaj do koszyka</a>
 
             </div>

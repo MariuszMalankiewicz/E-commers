@@ -33,7 +33,7 @@ require 'views/partials/header.php';
                     placeholder="Nazwa produktu"
                     minlength="3"
                     maxlength="50"
-                    value='<?= isset($editProduct['name']) ? $editProduct['name'] : '' ?>'
+                    value='<?= isset($editProduct['name']) ? htmlspecialchars($editProduct['name']) : '' ?>'
                     >
                 </div>
 
@@ -50,7 +50,7 @@ require 'views/partials/header.php';
                     id="categoryProduct"
                     name="category"
                     >
-                    <option value="<?= isset($editProduct['category']) ? $editProduct['category'] : '' ?>">Aktualnie: <?= isset($editProduct['category']) ? $editProduct['category'] : '' ?></option>
+                    <option value="<?= isset($editProduct['category']) ? htmlspecialchars($editProduct['category']) : '' ?>">Aktualnie: <?= isset($editProduct['category']) ? $editProduct['category'] : '' ?></option>
                     <option value="Telefony">Telefony</option>
                     <option value="Zegarki">Zegarki</option>
                 </select>
@@ -71,7 +71,7 @@ require 'views/partials/header.php';
                     max="10000.00" 
                     step="0.01"
                     placeholder="Cena produktu"
-                    value='<?= isset($editProduct['price']) ? $editProduct['price'] : '' ?>'
+                    value='<?= isset($editProduct['price']) ? htmlspecialchars($editProduct['price']) : '' ?>'
                     >
                     
                 </div>

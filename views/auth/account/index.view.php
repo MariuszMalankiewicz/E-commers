@@ -37,16 +37,16 @@ require 'views/partials/header.php';
             <tbody>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-800 hover:text-white hover:cursor-pointer">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <?= $userProduct['name']; ?>
+                        <?= htmlspecialchars($userProduct['name']); ?>
                     </th>
                     <td class="px-6 py-4">
                         Zdjęcie
                     </td>
                     <td class="px-6 py-4">
-                    <?= $userProduct['category']; ?>
+                    <?= htmlspecialchars($userProduct['category']); ?>
                     </td>
                     <td class="px-6 py-4">
-                    <?= $userProduct['price']; ?>
+                    <?= htmlspecialchars($userProduct['price']); ?>
                     </td>
                     <td class="px-6 py-4 text-center">
                         <a href="/edit?id=<?= $userProduct['id']; ?>" class="pr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</a>

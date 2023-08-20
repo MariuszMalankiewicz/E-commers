@@ -1,7 +1,5 @@
 <?php
 
-$heading = "Dodaj produkt";
-
 require base_path('core/Validation.php');
 
 $errors = [];
@@ -35,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     if(empty($errors))
     {
 
-        $config = require("config.php");
+        $config = require base_path("config.php");
 
         $insertProduct = new Database($config['database']);
 
@@ -57,4 +55,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }
 
-require base_path('views/auth/account/create.view.php');
+view('auth/account/create.view.php',
+    [
+        'heading' => 'Dodaj produkt',
+        'errors' => $errors,
+    ]
+);

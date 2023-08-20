@@ -1,7 +1,5 @@
 <?php
 
-$heading = "Edytuj produkt";
-
 $productId = $_GET['id'];
 
 $config = require base_path("config.php");
@@ -49,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     if(empty($errors))
     {
 
-        $config = require("config.php");
+        $config = require base_path("config.php");
 
         $dbh = new Database($config['database']);
 
@@ -72,4 +70,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }
 
-require base_path('views/auth/account/edit.view.php');
+view('auth/account/edit.view.php',
+    [
+        'heading' => 'Edytuj produkt',
+        'editProduct' => $editProduct,
+    ]
+);

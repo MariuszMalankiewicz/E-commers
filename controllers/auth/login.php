@@ -39,4 +39,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     
 }
 
-require base_path("views/auth/login.view.php");
+view("auth/login.view.php",
+    [
+        'errors' => $errors,
+    ]
+);

@@ -13,7 +13,7 @@ require base_path("views/partials/header.php");
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center p-12">
         <div class="mx-auto w-full max-w-[550px]">
-          <form action="https://formbold.com/s/FORM_ID" method="POST">
+          <form action="" method="POST">
             <div class="mb-5">
               <label
                 for="name"

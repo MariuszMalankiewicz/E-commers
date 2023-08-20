@@ -1,5 +1,7 @@
 <?php
 
-$heading = "Kontakt";
-
-require base_path("views/dashboards/contact.view.php");
+view("dashboards/contact.view.php",
+    [
+        'heading' => 'Kontakt',
+    ]
+);

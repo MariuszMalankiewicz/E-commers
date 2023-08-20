@@ -1,5 +1,7 @@
 <?php
 
-$heading = "Nowe produkty";
-
-require base_path("views/dashboards/news.view.php");
+view("dashboards/news.view.php",
+    [
+        'heading' => 'Nowe produkty',
+    ]
+);

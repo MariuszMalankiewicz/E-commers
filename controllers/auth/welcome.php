@@ -6,5 +6,5 @@ if(isset($_SESSION['userId']))
 }
 else
 {
-    require base_path("views/auth/welcome.view.php");
+    view("auth/welcome.view.php");
 }

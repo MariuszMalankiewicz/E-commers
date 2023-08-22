@@ -33,7 +33,7 @@ class Validation {
 
         $dbh = new Database($config['database']);
 
-        return $dbh->query("SELECT email FROM `user` WHERE email = :data", [':data' => $data])->find();
+        return $dbh->query("SELECT email FROM `users` WHERE email = :data", [':data' => $data])->find();
     }
 
     public static function passwordVerify(string $data1, string $data2) : bool
@@ -42,7 +42,7 @@ class Validation {
 
         $dbh = new Database($config['database']);
 
-        $passwordHash = $dbh->query("SELECT password FROM `user` WHERE email = :data", [':data' => $data1])->find();
+        $passwordHash = $dbh->query("SELECT password FROM `users` WHERE email = :data", [':data' => $data1])->find();
 
         if(isset($passwordHash['password']))
         {

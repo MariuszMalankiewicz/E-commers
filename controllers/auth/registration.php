@@ -1,7 +1,5 @@
 <?php
 
-require base_path("core/Validation.php");
-
 $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -75,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $insertUser = new Database($config['database']);
 
-        $query = 'INSERT INTO `user`(`id`, `username`, `email`, `password`) VALUES (:id, :username, :email, :password)';
+        $query = 'INSERT INTO `users`(`id`, `username`, `email`, `password`) VALUES (:id, :username, :email, :password)';
 
         $insertUser->query($query, 
         [

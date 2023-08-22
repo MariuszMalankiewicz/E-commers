@@ -7,7 +7,7 @@
 
         'database' => [
             'host' => 'localhost',
-            'dbname' => 'crud',
+            'dbname' => 'mmexpress',
             'port' => '3306',
             'charset' => 'utf8mb4',
         ],

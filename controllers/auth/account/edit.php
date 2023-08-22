@@ -14,8 +14,6 @@ $editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `
 
 authorize($editProduct['user_id'] === $_SESSION['userId']['id'], Response::FORBIDDEN);
 
-require base_path('core/Validation.php');
-
 $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')

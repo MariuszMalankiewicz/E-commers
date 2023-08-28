@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Validation;
+
 $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')

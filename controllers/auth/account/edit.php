@@ -1,5 +1,9 @@
 <?php
 
+use Core\Database;
+use Core\Validation;
+use Core\Response;
+
 $productId = $_GET['id'];
 
 $config = require base_path("config.php");

@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $productId = $_GET['id'];
 
 $config = require base_path("config.php");

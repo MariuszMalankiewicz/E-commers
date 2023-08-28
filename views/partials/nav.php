@@ -3,7 +3,7 @@
     <div class="flex flex-col py-4 items-center justify-center sm:flex-row sm:justify-between">
       <div class="flex flex-col items-center sm:flex-row">
           <div class="block mb-4 sm:mb-0 sm:flex-shrink-0">
-            <img class="h-20 w-20 sm:h-12 sm:w-12 border rounded-md" src="imgs/logo.png" alt="MMExpress logo">
+            <img class="h-20 w-20 sm:h-12 sm:w-12 border rounded-md" src="/imgs/logo.png" alt="MMExpress logo">
           </div>
           <div>
             <div class="flex flex-col text-center sm:items-baseline sm:space-x-4 sm:flex-row sm:ml-10">
@@ -28,8 +28,8 @@
   {
     echo "
     <div class='flex flex-col bg-gray-800 w-full text-center sm:flex-row'>
-        <a href='/account' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Moje oferty</a>
-        <a href='/create' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Dodaj produkt</a>
+        <a href='/products' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Moje oferty</a>
+        <a href='/product/create' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Dodaj produkt</a>
         <a href='/setting' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Ustawienia</a>
         <a href='/logout' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Wyloguj się</a>
     </div>

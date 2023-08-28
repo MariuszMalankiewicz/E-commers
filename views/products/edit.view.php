@@ -8,13 +8,13 @@ require base_path('views/partials/header.php');
 ?>
 
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-    <form method="POST" enctype="multipart/form-data">
+
+    <form method="POST">
 
         <div class="w-full h-full flex flex-col sm:flex-row">
 
             <div class="w-full flex justify-center items-center mb-4 sm:w-1/3">
-                <img class="w-24 h-24" src="imgs/example_img.png" alt="image description">
-                
+                <img class="w-24 h-24" src="/imgs/example_img.png" alt="image description">
             </div>
 
             <div class="w-full flex flex-col justify-center items-center sm:w-2/3">
@@ -33,7 +33,7 @@ require base_path('views/partials/header.php');
                     placeholder="Nazwa produktu"
                     minlength="3"
                     maxlength="50"
-                    value='<?= isset($_POST['name']) ? $_POST['name'] : '' ?>'
+                    value='<?= isset($editProduct['name']) ? htmlspecialchars($editProduct['name']) : '' ?>'
                     >
                 </div>
 
@@ -50,6 +50,7 @@ require base_path('views/partials/header.php');
                     id="categoryProduct"
                     name="category"
                     >
+                    <option value="<?= isset($editProduct['category']) ? htmlspecialchars($editProduct['category']) : '' ?>">Aktualnie: <?= isset($editProduct['category']) ? $editProduct['category'] : '' ?></option>
                     <option value="Telefony">Telefony</option>
                     <option value="Zegarki">Zegarki</option>
                 </select>
@@ -70,7 +71,7 @@ require base_path('views/partials/header.php');
                     max="10000.00" 
                     step="0.01"
                     placeholder="Cena produktu"
-                    value='<?= isset($_POST['price']) ? $_POST['price'] : '' ?>'
+                    value='<?= isset($editProduct['price']) ? htmlspecialchars($editProduct['price']) : '' ?>'
                     >
                     
                 </div>
@@ -82,9 +83,9 @@ require base_path('views/partials/header.php');
                         class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-10 sm:px-20 rounded focus:outline-none focus:shadow-outline" 
                         type="submit" 
                         name="add">
-                        Dodaj
+                        Aktualizuj
                     </button>
-                    <a class="pl-4" href="/account">Powrót</a>
+                    <a class="pl-4" href="/products">Powrót</a>
                 </div>
 
             </div>

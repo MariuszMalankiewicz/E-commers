@@ -65,14 +65,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             ':id' => $productId,
         ]);
 
-        header("location: /account");
+        header("location: /products");
 
         exit();
         
     }
 }
 
-view('auth/account/edit.view.php',
+view('products/edit.view.php',
     [
         'heading' => 'Edytuj produkt',
         'editProduct' => $editProduct,

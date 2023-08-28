@@ -12,7 +12,7 @@ $userProducts = $dbh->query("SELECT `id`, `category`, `name`, `price` FROM `prod
 
 ->get();
 
-view('auth/account/index.view.php',
+view('products/index.view.php',
     [
         'heading' => 'Moje oferty',
         'userProducts' => $userProducts,

@@ -49,14 +49,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             ':price' => $formData['price']
         ]);
 
-        header("location: /account");
+        header("location: /products");
 
         exit();
         
     }
 }
 
-view('auth/account/create.view.php',
+view('products/create.view.php',
     [
         'heading' => 'Dodaj produkt',
         'errors' => $errors,

@@ -8,11 +8,11 @@ return [
     '/welcome' => 'controllers/auth/welcome.php',
     '/login' => 'controllers/auth/login.php',
     '/registration' => 'controllers/auth/registration.php',
+    '/logout' => 'controllers/auth/logout.php',
 
-    '/account' => 'controllers/auth/account/index.php',
-    '/create' => 'controllers/auth/account/create.php',
-    '/edit' => 'controllers/auth/account/edit.php',
-    '/delete' => 'controllers/auth/account/delete.php',
+    '/products' => 'controllers/products/index.php',
+    '/product/create' => 'controllers/products/create.php',
+    '/product/edit' => 'controllers/products/edit.php',
+    '/product/delete' => 'controllers/products/delete.php',
 
-    '/logout' => 'controllers/auth/account/logout.php',
 ];

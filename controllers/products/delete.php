@@ -12,6 +12,6 @@ $deleteProduct->query("DELETE FROM `products` WHERE id = :product_id",
 
 [':product_id' => $productId]);
 
-header("location: /account");
+header("location: /products");
 
 exit();

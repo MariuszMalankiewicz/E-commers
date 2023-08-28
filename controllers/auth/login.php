@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $_SESSION['userId'] = $userId;
 
-        header("location: /account");
+        header("location: /products");
 
         exit();
     }

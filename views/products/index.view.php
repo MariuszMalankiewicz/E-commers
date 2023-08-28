@@ -49,8 +49,8 @@ require base_path('views/partials/header.php');
                     <?= htmlspecialchars($userProduct['price']); ?>
                     </td>
                     <td class="px-6 py-4 text-center">
-                        <a href="/edit?id=<?= $userProduct['id']; ?>" class="pr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</a>
-                        <a href="/delete?id=<?= $userProduct['id']; ?>" class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Usuń</a>
+                        <a href="/product/edit?id=<?= $userProduct['id']; ?>" class="pr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</a>
+                        <a href="/product/delete?id=<?= $userProduct['id']; ?>" class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Usuń</a>
                     </td>
                 </tr>
             </tbody>

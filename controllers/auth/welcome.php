@@ -2,7 +2,7 @@
 
 if(isset($_SESSION['userId']))
 {
-    require base_path("controllers/auth/account/index.php");
+    require base_path("controllers/products/index.php");
 }
 else
 {

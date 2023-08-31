@@ -8,7 +8,7 @@ require base_path('views/partials/header.php');
 ?>
 
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" action="/products" enctype="multipart/form-data">
 
         <div class="w-full h-full flex flex-col sm:flex-row">
 

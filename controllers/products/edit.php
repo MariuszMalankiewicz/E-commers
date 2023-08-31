@@ -2,7 +2,6 @@
 
 use Core\Database;
 use Core\Validation;
-use Core\Response;
 
 $productId = $_GET['id'];
 
@@ -16,7 +15,7 @@ $editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `
 
 ->findOrFail();
 
-authorize($editProduct['user_id'] === $_SESSION['userId']['id'], Response::FORBIDDEN);
+authorize($editProduct['user_id'] === $_SESSION['userId']['id']);
 
 $errors = [];
 

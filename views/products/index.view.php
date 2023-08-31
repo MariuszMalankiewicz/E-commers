@@ -48,9 +48,17 @@ require base_path('views/partials/header.php');
                     <td class="px-6 py-4">
                     <?= htmlspecialchars($userProduct['price']); ?>
                     </td>
-                    <td class="px-6 py-4 text-center">
-                        <a href="/product/edit?id=<?= $userProduct['id']; ?>" class="pr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</a>
-                        <a href="/product/delete?id=<?= $userProduct['id']; ?>" class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Usuń</a>
+                    <td class="px-6 py-4 text-center flex flex-row justify-center items-center">
+                        <form method="GET" action="/product">
+                            <input type="hidden" name="id" value='<?= $userProduct['id']; ?>'>
+                            <button class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</button>
+                        </form>
+
+                        <form method="POST" action="/product">
+                            <input type="hidden" name="_method" value='DELETE'>
+                            <input type="hidden" name="id" value='<?= $userProduct['id']; ?>'>
+                            <button class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Usuń</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>

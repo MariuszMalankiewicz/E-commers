@@ -37,7 +37,7 @@ function abort($code = Response::NOT_FOUND)
     die();
 }
 
-function authorize(string $condition, string $status)
+function authorize(string $condition, string $status = Response::FORBIDDEN)
 {
     if(!$condition) 
     {

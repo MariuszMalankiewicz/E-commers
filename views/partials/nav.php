@@ -29,7 +29,7 @@
     echo "
     <div class='flex flex-col bg-gray-800 w-full text-center sm:flex-row'>
         <a href='/products' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Moje oferty</a>
-        <a href='/product/create' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Dodaj produkt</a>
+        <a href='/products/create' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Dodaj produkt</a>
         <a href='/setting' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Ustawienia</a>
         <a href='/logout' class='px-4 py-4 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block'>Wyloguj się</a>
     </div>

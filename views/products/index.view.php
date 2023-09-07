@@ -49,10 +49,7 @@ require base_path('views/partials/header.php');
                     <?= htmlspecialchars($userProduct['price']); ?>
                     </td>
                     <td class="px-6 py-4 text-center flex flex-row justify-center items-center">
-                        <form method="GET" action="/product">
-                            <input type="hidden" name="id" value='<?= $userProduct['id']; ?>'>
-                            <button class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</button>
-                        </form>
+                        <a href="/product/edit?id=<?= $userProduct['id']; ?>" class="pl-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edytuj</a>
 
                         <form method="POST" action="/product">
                             <input type="hidden" name="_method" value='DELETE'>

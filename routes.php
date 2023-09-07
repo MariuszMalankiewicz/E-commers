@@ -17,5 +17,6 @@ $router->get('/products/create', 'controllers/products/create.php');
 $router->post('/products', 'controllers/products/store.php');
 $router->delete('/product', 'controllers/products/destroy.php');
 
-$router->get('/product', 'controllers/products/edit.php');
-$router->post('/product', 'controllers/products/edit.php');
+$router->get('/product/edit', 'controllers/products/edit.php');
+$router->patch('/product', 'controllers/products/update.php');
+

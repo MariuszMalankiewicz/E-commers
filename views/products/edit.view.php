@@ -9,8 +9,10 @@ require base_path('views/partials/header.php');
 
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
 
-    <form method="POST">
-
+    <form method="POST" action="/product">
+        <input type="hidden" name="_method" value='PATCH'>
+        <input type="hidden" name="id" value='<?= $editProduct['id']; ?>'>
+        
         <div class="w-full h-full flex flex-col sm:flex-row">
 
             <div class="w-full flex justify-center items-center mb-4 sm:w-1/3">

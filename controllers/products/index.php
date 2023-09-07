@@ -1,12 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path("config.php");
+$db = App::resolve(Database::class);
 
-$dbh = new Database($config['database']);
-
-$userProducts = $dbh->query("SELECT `id`, `category`, `name`, `price` FROM `products` WHERE user_id = :user_id", 
+$userProducts = $db->query("SELECT `id`, `category`, `name`, `price` FROM `products` WHERE user_id = :user_id", 
 
 [':user_id' => $_SESSION['userId']['id']])
 

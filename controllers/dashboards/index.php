@@ -1,12 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path("config.php");
+$db = App::resolve(Database::class);
 
-$dbh = new Database($config["database"]);
-
-$products = $dbh->query("SELECT `name`, `img`, `price` FROM products")->get();
+$products = $db->query("SELECT `name`, `img`, `price` FROM products")->get();
 
 view("dashboards/index.view.php",
     [

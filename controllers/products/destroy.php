@@ -1,12 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $product_id = $_POST['id'];
 
-$config = require base_path("config.php");
-
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $product = $db->query("SELECT * FROM products WHERE id = :product_id", 
 
@@ -21,5 +20,3 @@ $db->query("DELETE FROM `products` WHERE id = :product_id", [
 header("location: /products");
 
 exit();
-
-

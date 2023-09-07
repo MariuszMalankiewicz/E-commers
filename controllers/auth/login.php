@@ -1,5 +1,6 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validation;
 
@@ -25,11 +26,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
     if(empty($errors))
     {
-        $config = require base_path("config.php");
+        $db = App::resolve(Database::class);
 
-        $dbh = new Database($config['database']);
-
-        $userId = $dbh->query("SELECT id FROM `users` WHERE email = :data", [':data' => $formData['email']])->find();
+        $userId = $db->query("SELECT id FROM `users` WHERE email = :data", [':data' => $formData['email']])->find();
 
         $_SESSION['userId'] = $userId;
 

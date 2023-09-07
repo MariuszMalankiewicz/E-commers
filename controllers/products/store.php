@@ -1,5 +1,6 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validation;
 
@@ -38,13 +39,11 @@ if(!empty($errors))
     );
 }
 
-$config = require base_path("config.php");
-
-$insertProduct = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $query = 'INSERT INTO `products`(`id`, `user_id`, `category`, `name`, `price`) VALUES (:id, :user_id, :category, :name, :price)';
 
-$insertProduct->query($query, 
+$db->query($query, 
 [
     ':id' => NULL, 
     ':user_id' => $_SESSION['userId']['id'], 

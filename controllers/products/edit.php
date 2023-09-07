@@ -1,15 +1,14 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validation;
 
 $productId = $_GET['id'];
 
-$config = require base_path("config.php");
+$db = App::resolve(Database::class);
 
-$dbh = new Database($config['database']);
-
-$editProduct = $dbh->query("SELECT `user_id`, `category`, `name`, `price` FROM `products` WHERE id = :product_id", 
+$editProduct = $db->query("SELECT `user_id`, `category`, `name`, `price` FROM `products` WHERE id = :product_id", 
 
 [':product_id' => $productId])
 
@@ -48,15 +47,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     if(empty($errors))
     {
 
-        $config = require base_path("config.php");
-
-        $dbh = new Database($config['database']);
-
-        $updateProduct = new Database($config['database']);
+        $db = App::resolve(Database::class);
 
         $query = 'UPDATE `products` SET `category`=:category,`name`=:name, `price`=:price WHERE id= :id';
 
-        $updateProduct->query($query, 
+        $db->query($query, 
         [
             ':category' => $formData['category'], 
             ':name' => $formData['name'],

@@ -1,5 +1,6 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validation;
 
@@ -72,13 +73,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         $formData['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
 
-        $config = require base_path("config.php");
-
-        $insertUser = new Database($config['database']);
+        $db = App::resolve(Database::class);
 
         $query = 'INSERT INTO `users`(`id`, `username`, `email`, `password`) VALUES (:id, :username, :email, :password)';
 
-        $insertUser->query($query, 
+        $db->query($query, 
         [
             ':id' => NULL, 
             ':username' => $formData['username'], 
